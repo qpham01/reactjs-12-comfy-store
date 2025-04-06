@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router-dom';
-
+import { Header, StoreNavbar } from '../reactjs-controls/sections';
 const HomeLayout = () => {
   return (
     <>
-      <nav>
-        <span className='text-4xl text-primary'>Comfy</span>
-      </nav>
-      <Outlet />
+      <Header />
+      <StoreNavbar />
+      <section className='align-element py-10'>
+        <Outlet />
+      </section>
     </>
   );
 };
