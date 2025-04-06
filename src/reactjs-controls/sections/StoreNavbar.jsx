@@ -1,9 +1,32 @@
-import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLinks } from '../components';
 
+const themes = {
+  light: 'light',
+  dark: 'dark',
+};
+
+const getTheme = () => {
+  const theme = localStorage.getItem('theme') || themes.light;
+  return theme;
+};
+
 const StoreNavbar = ({ links }) => {
+  const [theme, setTheme] = useState(getTheme());
+  const handleTheme = () => {
+    const { light, dark } = themes;
+    const newTheme = theme === light ? dark : light;
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    document.querySelector('html').setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <nav className='bg-base-200'>
       <div className='navbar align-element'>
@@ -35,12 +58,13 @@ const StoreNavbar = ({ links }) => {
         </div>
         <div className='navbar-end'>
           {/* THEME SETUP */}
-          <button className='btn btn-ghost btn-circle'>
-            <BsMoonFill className='h-6 w-6' />
-          </button>
-          <button className='btn btn-ghost btn-circle'>
-            <BsSunFill className='h-6 w-6' />
-          </button>
+          <label className='swap swap-rotate'>
+            <input type='checkbox' onChange={handleTheme} />
+            {/* sun */}
+            <BsSunFill className='swap-on w-4 h-4' />
+            {/* moon */}
+            <BsMoonFill className='swap-off w-4 h-4' />
+          </label>
           {/* CART LINK */}
           <NavLink to='/cart' className='btn btn-ghost btn-circle btn-md ml-4'>
             <div className='indicator'>
