@@ -1,4 +1,4 @@
 const Checkout = () => {
-  return <div>Checkout</div>;
+  return <h1 className='text-4xl font-bold'>Checkout</h1>;
 };
 export default Checkout;
