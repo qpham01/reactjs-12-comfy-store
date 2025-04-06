@@ -1,23 +1,8 @@
-import {
-  HomeLayout,
-  Landing,
-  Error,
-  Products,
-  SingleProduct,
-  Cart,
-  About,
-  Register,
-  Login,
-  Checkout,
-  Orders,
-} from './pages';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
 
 function App() {
-  return (
-    <main>
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
-    </main>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
