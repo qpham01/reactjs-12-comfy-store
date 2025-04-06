@@ -1,8 +1,9 @@
 import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
-import { FaBarsStaggered } from 'react-icons/fa6';
 import { NavLink } from 'react-router-dom';
+import { FaBarsStaggered } from 'react-icons/fa6';
+import { NavLinks } from '../components';
 
-const StoreNavbar = () => {
+const StoreNavbar = ({ links }) => {
   return (
     <nav className='bg-base-200'>
       <div className='navbar align-element'>
@@ -21,14 +22,16 @@ const StoreNavbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200'
+              className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-52'
             >
-              nav links
+              <NavLinks links={links} />
             </ul>
           </div>
         </div>
         <div className='navbar-center hidden sm:flex'>
-          <ul className='menu menu-horizontal'>nav links</ul>
+          <ul className='menu menu-horizontal'>
+            <NavLinks links={links} />
+          </ul>
         </div>
         <div className='navbar-end'>
           {/* THEME SETUP */}
