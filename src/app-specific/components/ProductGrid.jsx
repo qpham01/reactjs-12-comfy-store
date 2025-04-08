@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import ProductCard from '../../reusable/components/ProductCard';
-import { formatPrice } from '../../reusable/utils/index.js';
+import { formatPrice } from '../../reusable/utils';
 const ProductGrid = () => {
   const products = useLoaderData();
   return (

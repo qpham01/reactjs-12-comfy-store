@@ -1,6 +1,6 @@
 import { useLoaderData, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { formatPrice } from '../../reusable/utils';
+import { formatPrice, generateIntegerOptions } from '../../reusable/utils';
 import { customFetch } from '../utils';
 
 export const loader = async ({ params }) => {
@@ -19,7 +19,10 @@ const SingleProduct = () => {
 
   const handleAmount = (e) => {
     const value = parseInt(e.target.value);
+    setAmount(value);
   };
+
+  const amountOptions = generateIntegerOptions(1, 5);
 
   return (
     <section>
@@ -67,6 +70,26 @@ const SingleProduct = () => {
                 ></button>
               ))}
             </div>
+          </div>
+          {/* AMOUNT */}
+          <div className='mt-6 first-line:form-control w-full max-w-xs'>
+            <label htmlFor='amount' className='label'>
+              <h4 className='text-md font-medium tracking-wider capitalize mb-2'>
+                amount
+              </h4>
+            </label>
+            <select
+              className='select select-secondary select-bordered select-md'
+              id='amount'
+              value={amount}
+              onChange={handleAmount}
+            >
+              {amountOptions}
+            </select>
+          </div>
+          {/* CART BUTTON */}
+          <div className='mt-10'>
+            <button className='btn btn-secondary btn-md'>Add to Cart</button>
           </div>
         </div>
       </div>
