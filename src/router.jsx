@@ -12,10 +12,10 @@ import {
   Login,
   Checkout,
   Orders,
-} from './pages';
+} from './app-specific/pages';
 
 // loaders
-import { loader as landingLoader } from './pages/Landing';
+import { loader as landingLoader } from './app-specific/pages/Landing';
 
 // actions
 

@@ -1,4 +1,4 @@
-import { LoginForm } from '../reusable/sections';
+import { LoginForm } from '../../reusable/sections';
 
 const Login = () => {
   return <LoginForm />;

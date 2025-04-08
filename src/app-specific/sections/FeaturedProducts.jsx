@@ -1,5 +1,5 @@
-import { SectionTitle } from '../reusable/components';
-import { ProductGrid } from '../reusable/components';
+import { SectionTitle } from '../../reusable/components';
+import { ProductGrid } from '../components';
 
 const FeaturedProducts = () => {
   return (

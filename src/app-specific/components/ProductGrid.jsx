@@ -1,18 +1,19 @@
-import { Link, useLoaderData } from 'react-router-dom';
-import ProductCard from './ProductCard';
-
+import { useLoaderData } from 'react-router-dom';
+import ProductCard from '../../reusable/components/ProductCard';
+import { formatPrice } from '../../reusable/utils/index.js';
 const ProductGrid = () => {
   const products = useLoaderData();
   return (
     <div className='pt=12 grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
       {products.map((product) => {
         const { title, price, image } = product.attributes;
+        const formattedPrice = formatPrice(price);
         return (
           <ProductCard
             link={`/products/${product.id}`}
             key={product.id}
             title={title}
-            price={price}
+            price={formattedPrice}
             image={image}
           />
         );

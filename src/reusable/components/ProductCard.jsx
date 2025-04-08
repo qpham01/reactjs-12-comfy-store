@@ -1,4 +1,3 @@
-import { LiaLinkSolid } from 'react-icons/lia';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ id, link, title, price, image }) => {
@@ -17,7 +16,7 @@ const ProductCard = ({ id, link, title, price, image }) => {
       </figure>
       <div className='card-body items-center text-center'>
         <h2 className='card-title capitalize tracking-wider'>{title}</h2>
-        <span className='text-secondary'>${price}</span>
+        <span className='text-secondary'>{price}</span>
       </div>
     </Link>
   );
