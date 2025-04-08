@@ -1,4 +1,4 @@
-import { LoginForm } from '../reactjs-controls/sections';
+import { LoginForm } from '../reusable/sections';
 
 const Login = () => {
   return <LoginForm />;

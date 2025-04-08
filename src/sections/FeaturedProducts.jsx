@@ -1,5 +1,5 @@
-import { SectionTitle } from '../reactjs-controls/components';
-import { ProductGrid } from '../reactjs-controls/components';
+import { SectionTitle } from '../reusable/components';
+import { ProductGrid } from '../reusable/components';
 
 const FeaturedProducts = () => {
   return (

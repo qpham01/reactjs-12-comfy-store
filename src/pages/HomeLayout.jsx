@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { Header, StoreNavbar } from '../reactjs-controls/sections';
+import { Header, StoreNavbar } from '../reusable/sections';
 import links from '../data/links';
 
 const HomeLayout = () => {

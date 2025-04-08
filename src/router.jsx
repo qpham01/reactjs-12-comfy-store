@@ -1,5 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { ErrorElement } from './reactjs-controls/components';
+import { ErrorElement } from './reusable/components';
 import {
   HomeLayout,
   Landing,

@@ -1,4 +1,4 @@
-import { RegisterForm } from '../reactjs-controls/sections';
+import { RegisterForm } from '../reusable/sections';
 
 const Register = () => {
   return <RegisterForm />;
