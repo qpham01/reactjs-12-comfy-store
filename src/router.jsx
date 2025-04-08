@@ -5,7 +5,6 @@ import {
   Landing,
   Error,
   Products,
-  SingleProduct,
   Cart,
   About,
   Register,
@@ -14,9 +13,10 @@ import {
   Orders,
 } from './app-specific/pages';
 
+import { Hero, FeaturedProducts, SingleProduct } from './app-specific/sections';
 // loaders
 import { loader as landingLoader } from './app-specific/pages/Landing';
-
+import { loader as singleProductLoader } from './app-specific/sections/SingleProduct';
 // actions
 
 const router = createBrowserRouter([
@@ -39,6 +39,8 @@ const router = createBrowserRouter([
       {
         path: 'products/:id',
         element: <SingleProduct />,
+        errorElement: <ErrorElement />,
+        loader: singleProductLoader,
       },
       {
         path: 'cart',

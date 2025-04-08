@@ -1,0 +1,90 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1744066383368
+  modified: 1744066383368
+collection:
+  - url: "{{ _.COMFY_URL }}/products"
+    name: Get all store products
+    meta:
+      id: req_97870ec2d3de42d194b7cc2851b591f0
+      created: 1744066448072
+      modified: 1744066653506
+      isPrivate: false
+      sortKey: -1744066448072
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products?featured=true"
+    name: Get featured products
+    meta:
+      id: req_290a2c60d477407ab96a64a4d0e6fb15
+      created: 1744076637713
+      modified: 1744076650310
+      isPrivate: false
+      sortKey: -1744066448022
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products/12"
+    name: Get single product
+    meta:
+      id: req_0742ac1d09ac4bc39fef21ed2b34b433
+      created: 1744081248932
+      modified: 1744081286267
+      isPrivate: false
+      sortKey: -1744066447972
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1744066403630
+    modified: 1744066403630
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1744066403040
+    modified: 1744066403040
+    isPrivate: false
+  subEnvironments:
+    - name: Comfy Store
+      meta:
+        id: env_01b1ae1e0ad5400792590b610a279196
+        created: 1744066470203
+        modified: 1744066566014
+        isPrivate: true
+        sortKey: 1744066470204
+      data:
+        COMFY_URL: https://strapi-store-server.onrender.com/api
