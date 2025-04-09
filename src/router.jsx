@@ -4,19 +4,20 @@ import {
   HomeLayout,
   Landing,
   Error,
-  Products,
   Cart,
   About,
+  Products,
+  SingleProduct,
   Register,
   Login,
   Checkout,
   Orders,
 } from './app-specific/pages';
 
-import { Hero, FeaturedProducts, SingleProduct } from './app-specific/sections';
+import { Hero, FeaturedProducts } from './app-specific/sections';
 // loaders
 import { loader as landingLoader } from './app-specific/pages/Landing';
-import { loader as singleProductLoader } from './app-specific/sections/SingleProduct';
+import { loader as singleProductLoader } from './app-specific/pages/SingleProduct';
 // actions
 
 const router = createBrowserRouter([
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorElement />,
       },
       {
-        path: 'products/:id',
+        path: 'product/:id',
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
         loader: singleProductLoader,

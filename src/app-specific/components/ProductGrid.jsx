@@ -10,7 +10,7 @@ const ProductGrid = () => {
         const formattedPrice = formatPrice(price);
         return (
           <ProductCard
-            link={`/products/${product.id}`}
+            link={`/product/${product.id}`}
             key={product.id}
             title={title}
             price={formattedPrice}

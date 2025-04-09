@@ -5,11 +5,11 @@ import { customFetch } from '../utils';
 
 export const loader = async ({ params }) => {
   const response = await customFetch(`/products/${params.id}`);
-  return { product: response.data.data };
+  return { product: response.data.data, productId: params.id };
 };
 
 const SingleProduct = () => {
-  const { product } = useLoaderData();
+  const { product, productId } = useLoaderData();
   const { title, price, image, description, colors, company } =
     product.attributes;
   const formattedPrice = formatPrice(price);
@@ -25,14 +25,14 @@ const SingleProduct = () => {
   const amountOptions = generateIntegerOptions(1, 5);
 
   return (
-    <section>
+    <>
       <div className='text-md breadcrumbs'>
         <ul>
           <li>
             <Link to='/'>Home</Link>
           </li>
           <li>
-            <Link to='/products'>Products</Link>
+            <Link to={`/product/${productId}`}>{title}</Link>
           </li>
         </ul>
       </div>
@@ -93,7 +93,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 export default SingleProduct;
