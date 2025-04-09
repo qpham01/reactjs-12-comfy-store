@@ -1,7 +1,14 @@
 import { Filters, PaginationContainer, ProductContainer } from '../sections';
+import { customFetch } from '../utils';
 
-export const loader = ({ request }) => {
-  return null;
+const productsPath = '/products';
+
+export const loader = async ({ request }) => {
+  const response = await customFetch(productsPath);
+  console.log(response);
+  const products = response.data.data;
+  const meta = response.data.meta;
+  return { products, meta };
 };
 
 const Products = () => {

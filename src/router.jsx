@@ -18,6 +18,7 @@ import { Hero, FeaturedProducts } from './app-specific/sections';
 // loaders
 import { loader as landingLoader } from './app-specific/pages/Landing';
 import { loader as singleProductLoader } from './app-specific/pages/SingleProduct';
+import { loader as productsLoader } from './app-specific/pages/Products';
 // actions
 
 const router = createBrowserRouter([
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
         path: 'products',
         element: <Products />,
         errorElement: <ErrorElement />,
+        loader: productsLoader,
       },
       {
         path: 'product/:id',

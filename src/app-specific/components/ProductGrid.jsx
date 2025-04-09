@@ -1,8 +1,9 @@
 import { useLoaderData } from 'react-router-dom';
 import ProductCard from '../../reusable/components/ProductCard';
 import { formatPrice } from '../../reusable/utils';
+
 const ProductGrid = () => {
-  const products = useLoaderData();
+  const { products } = useLoaderData();
   return (
     <div className='pt=12 grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
       {products.map((product) => {

@@ -1,4 +1,6 @@
+import { ProductGrid } from '../components';
+
 const ProductContainer = () => {
-  return <div>ProductContainer</div>;
+  return <ProductGrid />;
 };
 export default ProductContainer;
