@@ -1,6 +1,11 @@
-import { ProductGrid } from '../components';
+import { ProductGrid, ProductList } from '../components';
 
 const ProductContainer = () => {
-  return <ProductGrid />;
+  return (
+    <>
+      <ProductGrid />
+      <ProductList />
+    </>
+  );
 };
 export default ProductContainer;
