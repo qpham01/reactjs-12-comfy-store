@@ -5,7 +5,6 @@ const productsPath = '/products';
 
 export const loader = async ({ request }) => {
   const response = await customFetch(productsPath);
-  console.log(response);
   const products = response.data.data;
   const meta = response.data.meta;
   return { products, meta };
