@@ -42,6 +42,7 @@ export const editItemAction = (state, payload) => {
     state.itemCount += diff;
     state.itemCost += diff * item.price;
     item.amount = amount;
+    calculateTotals(state);
     toast.success('Item updated in cart');
   }
 };
