@@ -1,5 +1,8 @@
 import { useLoaderData, Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addItem } from '../features/cart/cartSlice';
 import { formatPrice, generateIntegerOptions } from '../../reusable/utils';
 import { customFetch } from '../utils';
 
@@ -20,6 +23,23 @@ const SingleProduct = () => {
   const handleAmount = (e) => {
     const value = parseInt(e.target.value);
     setAmount(value);
+  };
+
+  const cartProduct = {
+    cartId: product.id + productColor,
+    productId: product.id,
+    title,
+    price,
+    image,
+    company,
+    amount,
+    productColor,
+  };
+
+  const dispatch = useDispatch();
+
+  const addToCart = () => {
+    dispatch(addItem({ product: cartProduct }));
   };
 
   const amountOptions = generateIntegerOptions(1, 5);
@@ -89,7 +109,9 @@ const SingleProduct = () => {
           </div>
           {/* CART BUTTON */}
           <div className='mt-10'>
-            <button className='btn btn-secondary btn-md'>Add to Cart</button>
+            <button className='btn btn-secondary btn-md' onClick={addToCart}>
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
