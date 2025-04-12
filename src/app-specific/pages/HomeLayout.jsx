@@ -1,6 +1,7 @@
 import { Outlet, useNavigation } from 'react-router-dom';
 import { Loading } from '../components';
-import { Header, StoreNavbar } from '../../reusable/sections';
+import { Navbar } from '../sections';
+import { Header } from '../../reusable/sections';
 import links from '../data/links';
 
 const HomeLayout = () => {
@@ -10,7 +11,7 @@ const HomeLayout = () => {
   return (
     <>
       <Header />
-      <StoreNavbar links={links} />
+      <Navbar links={links} />
       {isPageLoading ? (
         <Loading />
       ) : (

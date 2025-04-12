@@ -1,32 +1,17 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+
 import { BsCart3, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FaBarsStaggered } from 'react-icons/fa6';
-import { NavLinks } from '../components';
-const themes = {
-  light: 'light',
-  dark: 'dark',
-};
+import { NavLinks } from '../../reusable/components';
+import { toggleTheme } from '../features/user/userSlice';
 
-const getTheme = () => {
-  const theme = localStorage.getItem('theme') || themes.light;
-  return theme;
-};
+const Navbar = ({ links }) => {
+  const dispatch = useDispatch();
 
-const StoreNavbar = ({ links }) => {
-  const [theme, setTheme] = useState(getTheme());
   const handleTheme = () => {
-    const { light, dark } = themes;
-    const newTheme = theme === light ? dark : light;
-    setTheme(newTheme);
+    dispatch(toggleTheme());
   };
-
-  useEffect(() => {
-    document.querySelector('html').setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
 
   const numCartItems = useSelector((state) => {
     return state.cartState.itemCount;
@@ -85,4 +70,4 @@ const StoreNavbar = ({ links }) => {
     </nav>
   );
 };
-export default StoreNavbar;
+export default Navbar;

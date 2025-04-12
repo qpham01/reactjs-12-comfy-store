@@ -14,7 +14,6 @@ import {
   Orders,
 } from './app-specific/pages';
 
-import { Hero, FeaturedProducts } from './app-specific/sections';
 // loaders
 import { loader as landingLoader } from './app-specific/pages/Landing';
 import { loader as singleProductLoader } from './app-specific/pages/SingleProduct';
