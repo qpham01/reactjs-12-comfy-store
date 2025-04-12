@@ -1,7 +1,6 @@
 import { Outlet, useNavigation } from 'react-router-dom';
 import { Loading } from '../components';
-import { Navbar } from '../sections';
-import { Header } from '../../reusable/sections';
+import { Navbar, Header } from '../sections';
 import links from '../data/links';
 
 const HomeLayout = () => {

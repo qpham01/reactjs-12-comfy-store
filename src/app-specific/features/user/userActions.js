@@ -6,12 +6,14 @@ const themes = {
 };
 
 export const loginUserAction = (state, payload) => {
-  state.user = payload;
+  //state.user = payload;
   toast.success('Login successful');
 };
 
 export const logoutUserAction = (state) => {
   state.user = null;
+  localStorage.removeItem('user');
+  // Maybe should also clear local storage
   toast.success('Logout successful');
 };
 

@@ -6,7 +6,7 @@ import { SectionTitle } from '../../reusable/components';
 
 const Cart = () => {
   // temp
-  const user = null;
+  const user = useSelector((state) => state.userState.user);
   const numCartItems = useSelector((state) => state.cartState.itemCount);
   if (numCartItems === 0) {
     return <SectionTitle title='Your cart is empty' />;
