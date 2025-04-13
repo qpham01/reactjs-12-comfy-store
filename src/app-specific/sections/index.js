@@ -5,3 +5,5 @@ export { default as PaginationContainer } from './PaginationContainer';
 export { default as Filters } from './Filters';
 export { default as Navbar } from './Navbar';
 export { default as Header } from './Header';
+export { default as CartItemList } from './CartItemList';
+export { default as OrderList } from './OrderList';

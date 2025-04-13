@@ -1,4 +1,49 @@
+import { redirect, useLoaderData } from 'react-router-dom';
+import { customFetch } from '../utils';
+import { toast } from 'react-toastify';
+
+import { OrderList, PaginationContainer } from '../sections';
+import { SectionTitle } from '../../reusable/components';
+
+export const loader =
+  (store) =>
+  async ({ request }) => {
+    const user = store.getState().userState.user;
+    if (!user) {
+      toast.warn('please login to view orders');
+      return redirect('/login');
+    }
+    const searchParams = new URL(request.url).searchParams;
+    const entries = [...searchParams.entries()];
+    const params = Object.fromEntries(entries);
+    const config = {
+      params,
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+      timeout: 10000,
+    };
+    try {
+      const response = await customFetch.get('orders', config);
+      console.log(response);
+      return { orders: response.data.data, meta: response.data.meta };
+    } catch (error) {
+      const errorMessage =
+        error?.response?.data?.error?.message ||
+        'something went wrong placing your order';
+      toast.error(errorMessage);
+      if (error?.response?.status === 401 || 403) {
+        return redirect('/login');
+      }
+      return null;
+    }
+  };
+
 const Orders = () => {
-  return <h1 className='text-4xl font-bold'>Orders</h1>;
+  const { meta } = useLoaderData();
+  if (meta.pagination.total === 0) {
+    return <SectionTitle title='No orders found' />;
+  }
+  return <OrderList />;
 };
 export default Orders;
