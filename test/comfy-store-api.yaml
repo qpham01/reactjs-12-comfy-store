@@ -1,0 +1,305 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1744066383368
+  modified: 1744066383368
+collection:
+  - url: "{{ _.COMFY_URL }}/products"
+    name: Get all store products
+    meta:
+      id: req_97870ec2d3de42d194b7cc2851b591f0
+      created: 1744066448072
+      modified: 1744066653506
+      isPrivate: false
+      sortKey: -1744066448072
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products?featured=true"
+    name: Get featured products
+    meta:
+      id: req_290a2c60d477407ab96a64a4d0e6fb15
+      created: 1744076637713
+      modified: 1744076650310
+      isPrivate: false
+      sortKey: -1744066448022
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products/12"
+    name: Get single product
+    meta:
+      id: req_0742ac1d09ac4bc39fef21ed2b34b433
+      created: 1744081248932
+      modified: 1744081286267
+      isPrivate: false
+      sortKey: -1744066447972
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products"
+    name: Search products
+    meta:
+      id: req_b6ca8f6f562f44c692e2156469abf0ee
+      created: 1744330422540
+      modified: 1744332021828
+      isPrivate: false
+      sortKey: -1744066447997
+    method: GET
+    parameters:
+      - id: pair_3c016df8e61d4b38a90e1349a6ba6575
+        name: search
+        value: s
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products"
+    name: Filter products
+    meta:
+      id: req_8d2375e559cb454e918d5e2056cdc7ad
+      created: 1744330464746
+      modified: 1744332028649
+      isPrivate: false
+      sortKey: -1744066447984.5
+    method: GET
+    parameters:
+      - id: pair_1f7b62c152874a9095219438cfc1898d
+        name: company
+        value: luxora
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/products"
+    name: Paginate products
+    meta:
+      id: req_f77d9b5f692f4c24ab36a4becf69829c
+      created: 1744332009012
+      modified: 1744332067720
+      isPrivate: false
+      sortKey: -1744066448047
+    method: GET
+    parameters:
+      - id: pair_ebffc8724317425c856b73cae7bef21d
+        name: page
+        value: "3"
+        disabled: false
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/auth/local/register"
+    name: Register User
+    meta:
+      id: req_411d040cb760415385f5438c2f1c0cfb
+      created: 1744485612083
+      modified: 1744485815182
+      isPrivate: false
+      sortKey: -1744485612083
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+          "username": "foo bah", "email": "foo.bah@gmail.com", "password": "secret"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/auth/local"
+    name: Login User
+    meta:
+      id: req_1cd33d6adb29485ba5d778d706c08ba5
+      created: 1744487057733
+      modified: 1744487150533
+      isPrivate: false
+      sortKey: -1744276030077.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+          "identifier": "test@test.com", "password": "secret"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/orders"
+    name: Create Order (authenticated)
+    meta:
+      id: req_8d4653aebe2f4497bbc382b8e21eed36
+      created: 1744521474871
+      modified: 1744522248475
+      isPrivate: false
+      sortKey: -1744171239074.75
+    method: POST
+    body:
+      mimeType: application/json
+      text: >-
+        {
+        	"data": {
+        		"address": "Texas, US",		
+            "cartItems": [
+                {
+                    "cartId": "19#33FF57",
+                    "productId": 19,
+                    "title": "avant-garde lamp",
+                    "price": "17999",
+                    "image": "https://images.pexels.com/photos/943150/pexels-photo-943150.jpeg?auto=compress&cs=tinysrgb&w=1600",
+                    "company": "Modenza",
+                    "amount": 2,
+                    "productColor": "#33FF57"
+                },
+                {
+                    "cartId": "6#FF5733",
+                    "productId": 6,
+                    "title": "coffee table",
+                    "price": "17999",
+                    "image": "https://images.pexels.com/photos/3679601/pexels-photo-3679601.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                    "company": "Modenza",
+                    "amount": 3,
+                    "productColor": "#FF5733"
+                }
+            ],
+        		"name": "John",
+            "numItemsInCart": 5,
+            "chargeTotal": 99494.5,
+            "orderTotal": 994.95
+        	}
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.0.2
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzQ0NTIxNjc0LCJleHAiOjE3NDcxMTM2NzR9.TC6SEiMbvprdZs-JcKH3llaVLRyNjl1jDEJ3pgVG4cs
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.COMFY_URL }}/orders"
+    name: Get all orders (authenticated)
+    meta:
+      id: req_86a97ac66b5648948170d2fdc5cfbc40
+      created: 1744524364955
+      modified: 1744524418268
+      isPrivate: false
+      sortKey: -1744066448059.5
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNzQ0NTIxNjc0LCJleHAiOjE3NDcxMTM2NzR9.TC6SEiMbvprdZs-JcKH3llaVLRyNjl1jDEJ3pgVG4cs
+      prefix: Bearer
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1744066403630
+    modified: 1744066403630
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1744066403040
+    modified: 1744066403040
+    isPrivate: false
+  subEnvironments:
+    - name: Comfy Store
+      meta:
+        id: env_01b1ae1e0ad5400792590b610a279196
+        created: 1744066470203
+        modified: 1744066566014
+        isPrivate: true
+        sortKey: 1744066470204
+      data:
+        COMFY_URL: https://strapi-store-server.onrender.com/api
