@@ -5,8 +5,26 @@ import { toast } from 'react-toastify';
 import { OrderList, DotsPaginationContainer } from '../sections';
 import { SectionTitle } from '../../reusable/components';
 
+const ordersQuery = (params, user) => {
+  const config = {
+    params,
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
+    timeout: 10000,
+  };
+  return {
+    queryKey: [
+      'orders',
+      user.username,
+      params.page ? parseInt(params.page) : 1,
+    ],
+    queryFn: () => customFetch.get('/orders', config),
+  };
+};
+
 export const loader =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const user = store.getState().userState.user;
     if (!user) {
@@ -16,15 +34,10 @@ export const loader =
     const searchParams = new URL(request.url).searchParams;
     const entries = [...searchParams.entries()];
     const params = Object.fromEntries(entries);
-    const config = {
-      params,
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-      timeout: 10000,
-    };
     try {
-      const response = await customFetch.get('orders', config);
+      const response = await queryClient.ensureQueryData(
+        ordersQuery(params, user)
+      );
       console.log(response);
       return { orders: response.data.data, meta: response.data.meta };
     } catch (error) {

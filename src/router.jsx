@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
+import { QueryClient } from '@tanstack/react-query';
 import { ErrorElement } from './reusable/components';
+
 import {
   HomeLayout,
   Landing,
@@ -27,6 +29,14 @@ import { registerAction } from './app-specific/pages/Register';
 import { checkoutAction } from './app-specific/components/CheckoutForm';
 import { store } from './store';
 
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5,
+    },
+  },
+});
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -37,19 +47,19 @@ const router = createBrowserRouter([
         index: true,
         element: <Landing />,
         errorElement: <ErrorElement />,
-        loader: landingLoader,
+        loader: landingLoader(queryClient),
       },
       {
         path: 'products',
         element: <Products />,
         errorElement: <ErrorElement />,
-        loader: productsLoader,
+        loader: productsLoader(queryClient),
       },
       {
         path: 'product/:id',
         element: <SingleProduct />,
         errorElement: <ErrorElement />,
-        loader: singleProductLoader,
+        loader: singleProductLoader(queryClient),
       },
       {
         path: 'cart',
@@ -60,12 +70,12 @@ const router = createBrowserRouter([
         path: 'checkout',
         element: <Checkout />,
         loader: checkoutLoader(store),
-        action: checkoutAction(store),
+        action: checkoutAction(store, queryClient),
       },
       {
         path: 'orders',
         element: <Orders />,
-        loader: ordersLoader(store),
+        loader: ordersLoader(store, queryClient),
       },
     ],
   },

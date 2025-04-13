@@ -4,8 +4,15 @@ import FeaturedProducts from '../sections/FeaturedProducts';
 
 const featuredProductsPath = '/products?featured=true';
 
-export const loader = async () => {
-  const response = await customFetch(featuredProductsPath);
+const featuredProductsQuery = {
+  queryKey: ['featuredProducts'],
+  queryFn: () => {
+    return customFetch(featuredProductsPath);
+  },
+};
+
+export const loader = (queryClient) => async () => {
+  const response = await queryClient.ensureQueryData(featuredProductsQuery);
   const products = response.data.data;
   return { products };
 };
