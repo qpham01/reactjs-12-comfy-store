@@ -1,7 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CartItemList, CartTotals } from '../components';
+import { CartTotals } from '../components';
+import { CartItemList } from '../sections';
 import { SectionTitle } from '../../reusable/components';
 
 const Cart = () => {
