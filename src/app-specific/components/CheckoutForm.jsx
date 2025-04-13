@@ -7,7 +7,7 @@ import FormInput from '../../reusable/components/FormInput';
 import SubmitButton from '../../reusable/components/SubmitButton';
 
 export const checkoutAction =
-  (store) =>
+  (store, queryClient) =>
   async ({ request }) => {
     const formData = await request.formData();
     const { name, address } = Object.fromEntries(formData);
@@ -33,6 +33,7 @@ export const checkoutAction =
         }
       );
       console.log(response);
+      queryClient.removeQueries({ queryKey: ['orders'] });
       store.dispatch(clearCart());
       toast.success('order placed successfully');
       return redirect('/orders');
