@@ -9,24 +9,9 @@ const RegisterForm = () => {
         method='POST'
       >
         <h4 className='text-center text-3xl font-bold'>Register</h4>
-        <FormInput
-          type='text'
-          name='username'
-          label='username'
-          defaultValue='foo bah1'
-        />
-        <FormInput
-          type='text'
-          name='email'
-          label='email'
-          defaultValue='foo@bah1.com'
-        />
-        <FormInput
-          type='password'
-          name='password'
-          label='password'
-          defaultValue='secret'
-        />
+        <FormInput type='text' name='username' label='username' />
+        <FormInput type='text' name='email' label='email' />
+        <FormInput type='password' name='password' label='password' />
         <div className='mt-4'>
           <SubmitButton text='Register' />
         </div>

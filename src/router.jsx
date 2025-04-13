@@ -18,9 +18,12 @@ import {
 import { loader as landingLoader } from './app-specific/pages/Landing';
 import { loader as singleProductLoader } from './app-specific/pages/SingleProduct';
 import { loader as productsLoader } from './app-specific/pages/Products';
+import { loader as checkoutLoader } from './app-specific/pages/Checkout';
+
 // actions
 import { loginAction } from './app-specific/pages/Login';
 import { registerAction } from './app-specific/pages/Register';
+import { checkoutAction } from './app-specific/components/CheckoutForm';
 import { store } from './store';
 
 const router = createBrowserRouter([
@@ -55,6 +58,8 @@ const router = createBrowserRouter([
       {
         path: 'checkout',
         element: <Checkout />,
+        loader: checkoutLoader(store),
+        action: checkoutAction(store),
       },
       {
         path: 'orders',
