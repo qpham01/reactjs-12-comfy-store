@@ -5,8 +5,10 @@ const themes = {
   dark: 'dark',
 };
 
-export const loginUserAction = (state, payload) => {
-  //state.user = payload;
+export const loginUserAction = (state, action) => {
+  const user = { ...action.payload.user, token: action.payload.jwt };
+  state.user = user;
+  localStorage.setItem('user', JSON.stringify(user));
   toast.success('Login successful');
 };
 

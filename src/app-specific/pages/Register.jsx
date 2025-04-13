@@ -23,6 +23,6 @@ export const registerAction = async ({ request }) => {
 };
 
 const Register = () => {
-  return <RegisterForm register={registerAction} />;
+  return <RegisterForm />;
 };
 export default Register;

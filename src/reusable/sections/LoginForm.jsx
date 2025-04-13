@@ -1,7 +1,8 @@
 import { Link, Form } from 'react-router-dom';
-import { UserNameInput, FormInput, SubmitButton } from '../components';
+import { FormInput, SubmitButton } from '../components';
+import { useDispatch } from 'react-redux';
 
-const LoginForm = () => {
+const LoginForm = ({ guestLogin }) => {
   return (
     <section className='h-screen grid place-items-center'>
       <Form
@@ -9,18 +10,8 @@ const LoginForm = () => {
         method='POST'
       >
         <h4 className='text-center text-3xl font-bold'>Login</h4>
-        <FormInput
-          type='email'
-          name='identifier'
-          label='email'
-          defaultValue='test@test.com'
-        />
-        <FormInput
-          type='password'
-          label='password'
-          name='password'
-          defaultValue='secret'
-        />
+        <FormInput type='email' name='identifier' label='email' />
+        <FormInput type='password' label='password' name='password' />
         <div className='mt-4 flex'>
           <SubmitButton text='Login' />
         </div>
@@ -28,6 +19,7 @@ const LoginForm = () => {
           <button
             className='btn btn-secondary btn-block capitalize'
             type='button'
+            onClick={guestLogin}
           >
             guest user
           </button>
