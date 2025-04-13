@@ -7,4 +7,4 @@ export { default as Navbar } from './Navbar';
 export { default as Header } from './Header';
 export { default as CartItemList } from './CartItemList';
 export { default as OrderList } from './OrderList';
-export { default as ComplexPaginationContainer } from './ComplexPaginationContainer';
+export { default as DotsPaginationContainer } from './DotsPaginationContainer';
