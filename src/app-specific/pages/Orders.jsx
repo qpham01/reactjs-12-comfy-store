@@ -44,6 +44,12 @@ const Orders = () => {
   if (meta.pagination.total === 0) {
     return <SectionTitle title='No orders found' />;
   }
-  return <OrderList />;
+  return (
+    <>
+      <SectionTitle title='Your Orders' />
+      <PaginationContainer />
+      <OrderList />
+    </>
+  );
 };
 export default Orders;
